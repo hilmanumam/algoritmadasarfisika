@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter konstanta pegas
+k = 50  # konstanta pegas dalam N/m
+
+# Rentang perpindahan pegas
+x = np.arange(0, 0.21, 0.01)  # dari 0 hingga 0.2 meter, dengan langkah 0.01 meter
+
+# Menghitung gaya yang bekerja pada pegas menggunakan Hukum Hooke: F(x) = -kx
+F = -k * x
+
+# Plot grafik gaya terhadap posisi
+plt.plot(x, F, color='b', linestyle='-', marker='o', label=r'$F(x) = -kx$')
+plt.title('Grafik Gaya Pegas terhadap Perpindahan')
+plt.xlabel('Posisi (meter)')
+plt.ylabel('Gaya (Newton)')
+plt.grid(True)
+plt.legend()
+plt.show()
