@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter gerak parabola
+v0 = 20  # kecepatan awal (meter per detik)
+theta = 45  # sudut lemparan (derajat)
+g = 10  # percepatan gravitasi (meter per detik kuadrat)
+
+# Mengubah sudut ke radian
+theta_rad = np.radians(theta)
+
+# Menghitung waktu total benda di udara
+t_total = 2 * v0 * np.sin(theta_rad) / g
+
+# Membuat array waktu dari 0 hingga waktu total
+t = np.linspace(0, t_total, 500)
+
+# Menghitung posisi horizontal (x) dan vertikal (y)
+x = v0 * np.cos(theta_rad) * t
+y = v0 * np.sin(theta_rad) * t - 0.5 * g * t**2
+
+# Plot grafik
+plt.figure(figsize=(10, 5))
+plt.plot(x, y, label="Lintasan Gerak Parabola", color='b')
+plt.title("Grafik Gerak Parabola")
+plt.xlabel("Posisi Horizontal (meter)")
+plt.ylabel("Posisi Vertikal (meter)")
+plt.grid(True)
+plt.legend()
+plt.show()
