@@ -1,0 +1,24 @@
+import numpy as np
+from scipy.integrate import cumulative_trapezoid
+import matplotlib.pyplot as plt
+
+# Parameter
+s_max = 20  # jarak total dalam meter
+
+# Mendefinisikan rentang jarak
+s = np.linspace(0, s_max, 1000)  # Jarak dari 0 hingga 20 meter dengan 1000 titik data
+
+# Mendefinisikan gaya yang berubah sesuai jarak: F(s) = 6s^4 + 4s^3 + 2s^2 + 3
+F = 6 * s**4 + 4 * s**3 + 2 * s**2 + 3
+
+# Menghitung usaha kumulatif menggunakan integral numerik (metode trapezoidal)
+W = cumulative_trapezoid(F, s, initial=0)  # Usaha kumulatif pada setiap posisi s
+
+# Plot grafik usaha terhadap jarak
+plt.plot(s, W, color='r', linestyle='-', label=r'$W(s)$ untuk $F(s) = 6s^4 + 4s^3 + 2s^2 + 3$')
+plt.title('Usaha terhadap Jarak pada Gaya Tidak Konstan')
+plt.xlabel('Jarak (meter)')
+plt.ylabel('Usaha (Joule)')
+plt.grid(True)
+plt.legend()
+plt.show()
