@@ -1,0 +1,42 @@
+import numpy as np
+import plotly.graph_objects as go
+
+# Parameter
+m = 2  # massa (kg)
+k = 80  # konstanta pegas (N/m)
+A = 0.05  # amplitudo (m)
+w = np.sqrt(k/m)  # frekuensi sudut (rad/s)
+
+# Waktu
+t = np.linspace(0, 5, 1000)
+
+# Persamaan simpangan
+x = A * np.cos(w*t)
+
+# Kecepatan
+v = -A*w*np.sin(w*t)
+
+# Percepatan
+a = -A*w**2*np.cos(w*t)
+
+# Membuat figure
+fig = go.Figure()
+
+# Tambahkan trace untuk simpangan
+fig.add_trace(go.Scatter(x=t, y=x, mode='lines', name='Simpangan'))
+
+# Tambahkan trace untuk kecepatan
+fig.add_trace(go.Scatter(x=t, y=v, mode='lines', name='Kecepatan'))
+
+# Tambahkan trace untuk percepatan
+fig.add_trace(go.Scatter(x=t, y=a, mode='lines', name='Percepatan'))
+
+# Customize tampilan
+fig.update_layout(
+    title="Gerak Harmonik Sederhana",
+    xaxis_title="Waktu (s)",
+    yaxis_title="Amplitudo"
+)
+
+# Tampilkan grafik
+fig.show()
