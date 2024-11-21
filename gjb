@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter gerakan vertikal
+v0 = 50  # kecepatan awal dalam m/s
+g = 10   # percepatan gravitasi dalam m/s²
+
+# Menghitung waktu sampai benda mencapai puncak
+t_max = v0 / g
+
+# Membuat array waktu dari 0 hingga waktu maksimal (t_max), dengan 500 titik
+t = np.linspace(0, t_max, 500)  # Total waktu 2 kali waktu maksimal (naik + turun)
+
+# Menghitung posisi vertikal y(t) berdasarkan persamaan gerak
+y = v0 * t - 0.5 * g * t**2
+
+# Plot grafik posisi terhadap waktu
+plt.plot(t, y, label="Posisi Vertikal")
+plt.title("Gerak Vertikal Benda yang Dilempar ke Atas")
+plt.xlabel("Waktu (detik)")
+plt.ylabel("Posisi (meter)")
+plt.grid(True)
+plt.legend()
+plt.show()
