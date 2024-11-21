@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter
+F = 100  # gaya konstan dalam Newton
+s_max = 20  # jarak total dalam meter
+
+# Mendefinisikan rentang jarak
+s = np.linspace(0, s_max, 100)  # Jarak dari 0 hingga 20 meter dengan 100 titik data
+
+# Menghitung usaha pada setiap jarak s
+W = F * s  # Usaha pada setiap jarak
+
+# Plot grafik usaha terhadap jarak
+plt.plot(s, W, color='g', linestyle='-', label='W(s) = F * s')
+plt.title('Usaha terhadap Jarak pada Gaya Konstan')
+plt.xlabel('Jarak (meter)')
+plt.ylabel('Usaha (Joule)')
+plt.grid(True)
+plt.legend()
+plt.show()
