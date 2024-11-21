@@ -1,0 +1,41 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter gerakan vertikal
+v0 = 50  # kecepatan awal dalam m/s
+g = 10   # percepatan gravitasi dalam m/s²
+
+# Menghitung waktu sampai benda mencapai puncak
+t_max = v0 / g
+
+# Membuat array waktu dari 0 hingga waktu maksimal (t_max), dengan 500 titik
+t = np.linspace(0, 2 * t_max, 500)  # Total waktu 2 kali waktu maksimal (naik + turun)
+
+# Menghitung posisi vertikal y(t) berdasarkan persamaan gerak
+y = v0 * t - 0.5 * g * t**2
+
+# Plot grafik posisi terhadap waktu
+plt.figure(figsize=(12, 6))  # Mengatur ukuran grafik
+plt.plot(
+    t, y, 
+    color='darkblue',       # Warna garis
+    linestyle='--',         # Jenis garis
+    linewidth=2,            # Ketebalan garis
+    markersize=5,           # Ukuran marker
+    label="Posisi Vertikal"
+)
+
+# Menambahkan elemen tambahan pada grafik
+plt.title("Gerak Vertikal Benda yang Dilempar ke Atas", fontsize=16, color='darkred')
+plt.xlabel("Waktu (detik)", fontsize=14)
+plt.ylabel("Posisi (meter)", fontsize=14)
+plt.grid(visible=True, which='both', linestyle=':', linewidth=0.5, color='gray')
+plt.axhline(0, color='black', linewidth=0.8, linestyle='-')  # Garis horizontal di y=0
+plt.axvline(t_max, color='purple', linestyle=':', label=f"Waktu Maksimum ({t_max:.2f}s)")
+plt.legend(fontsize=12, loc='best')  # Legenda dengan posisi otomatis terbaik
+
+# Menyimpan grafik ke file
+plt.savefig("gerak_vertikal.png", dpi=300)  # Menyimpan grafik dengan kualitas tinggi
+
+# Menampilkan grafik
+plt.show()
