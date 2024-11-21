@@ -1,0 +1,22 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter gerak harmonis sederhana
+A = 0.1  # Amplitudo dalam meter (10 cm = 0.1 m)
+T = 5    # Periode dalam detik
+t_max = 20  # waktu total dalam detik
+
+# Mendefinisikan rentang waktu
+t = np.arange(0, 20, 0.0001)  # Waktu dari 0 hingga 20 detik dengan 1000 titik data untuk kelancaran grafik
+
+# Menghitung posisi pada setiap waktu t menggunakan persamaan gerak harmonis sederhana
+x = A * np.cos((2 * np.pi / T) * t)
+
+# Plot grafik posisi terhadap waktu
+plt.plot(t, x, color='b', linestyle='-', label='x(t) = A * cos(2πt/T)')
+plt.title('Gerak Harmonis Sederhana')
+plt.xlabel('Waktu (detik)')
+plt.ylabel('Posisi (meter)')
+plt.grid(True)
+plt.legend()
+plt.show()
